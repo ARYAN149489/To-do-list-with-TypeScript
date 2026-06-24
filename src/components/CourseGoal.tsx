@@ -1,25 +1,25 @@
 // import { type ReactNode } from "react";
 // import { FC } from "react";
 
-//* type CourseGoalProps = { title: string; description: string, children: ReactNode };
+import { ReactNode } from "react";
+
 type CourseGoalProps = {
   title: string;
-  description: string;
+  children: ReactNode;
   id: number;
   onDelete: (id: number) => void;
 }; //! Can use interface also
 export default function CourseGoal({
   title,
-  description,
+  children,
   id,
   onDelete,
 }: CourseGoalProps) {
-  //* here children would also come with description then
   return (
     <article>
       <div>
         <h2>{title}</h2>
-        <p>{description}</p>
+        <p>{children}</p>
       </div>
       <button
         onClick={() => onDelete(id)}
@@ -29,18 +29,3 @@ export default function CourseGoal({
     </article>
   );
 }
-
-// const CourseGoal: FC<CourseGoalProps> = ({title, description})=>{
-//     //! Other syntax for functions FC -> FUntional component which is of generic type
-//     return (
-//     <article>
-//       <div>
-//         <h2>{title}</h2>
-//         <p>{description}</p>
-//       </div>
-//       <button>Delete</button>
-//     </article>
-//   );
-// }
-
-// export default CourseGoal
